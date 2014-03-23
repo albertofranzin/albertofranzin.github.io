@@ -1,0 +1,66 @@
+body {
+	font-family: "Ubuntu";
+	font-size: 14px;
+	background: #f8f8f8;
+	color: #222;
+	text-align: justify;
+}
+
+div {
+	margin: 10px;
+	padding: 10px;
+}
+
+h1 {
+	font-size: 20px;
+	margin: 0px 0px 30px -1.5ex;
+}
+
+h2 {
+	font-size: 16px;
+}
+
+a:link,
+a:visited,
+a:active,
+a:hover {
+	text-decoration: none;
+	color: #800;
+}
+
+h1:hover:after,
+h2:hover:after {
+	text-align: right;
+	float: right;
+	content: "§";
+}
+
+/***************************/
+
+div#upperempty {
+	margin: 0px 0px 30px -10px;
+	height: 80px;
+	background: #366;
+	overflow: hidden;
+}
+
+div#centerdiv {
+	width: 500px;
+	margin: auto;
+	border-left: dashed #ddd 1px;
+	padding-left: 2px;
+}
+
+div#lastupdate {
+	position: fixed;
+	bottom: 0;
+	color: #888;
+	font-size: 10px;
+	margin: 10px 0px;
+	padding: 0px;
+}
+
+a h1,
+a h2 {
+	color: #222;
+}
