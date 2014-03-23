@@ -47,6 +47,17 @@ div#upperempty {
 div#centerdiv {
 	width: 500px;
 	margin: auto;
+	border-left: dashed #ddd 1px;
+	padding-left: 2px;
+}
+
+div#lastupdate {
+	position: fixed;
+	bottom: 0;
+	color: #888;
+	font-size: 10px;
+	margin: 10px 0px;
+	padding: 0px;
 }
 
 a h1,
