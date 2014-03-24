@@ -28,11 +28,20 @@ a:hover {
 	color: #800;
 }
 
-h1:hover:after,
+h1:hover:after {
+	text-align: right;
+	float: right;
+	font-size: 14px;
+	color: #ddd;
+	content: "§";
+}
+
 h2:hover:after {
 	text-align: right;
 	float: right;
-	content: "§";
+	font-size: 14px;
+	color: #ddd;
+	content: '¶';
 }
 
 /***************************/
