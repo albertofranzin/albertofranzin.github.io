@@ -1,13 +1,13 @@
 @font-face
 {
     font-family : "Ubuntu";
-    /*src: url('Ubuntu-R.woff');*/
+    src: url('Ubuntu-R.woff');
 }
 
 @font-face
 {
     font-family : "UbuntuMono";
-    /*src: url('UbuntuMono-R.woff');*/
+    src: url('UbuntuMono-R.woff');
 }
 
 
