@@ -1,9 +1,23 @@
+@font-face
+{
+    font-family : "Ubuntu";
+    src: url('Ubuntu-R.woff');
+}
+
+@font-face
+{
+    font-family : "UbuntuMono";
+    src: url('UbuntuMono-R.woff');
+}
+
+
 body {
 	font-family: "Ubuntu";
 	font-size: 14px;
 	background: #f8f8f8;
 	color: #222;
 	text-align: justify;
+        line-height: 1.25em;
 }
 
 div {
@@ -13,11 +27,42 @@ div {
 
 h1 {
 	font-size: 20px;
-	margin: 0px 0px 30px -1.5ex;
+	margin: 0px 0px 30px -2.8em;
+}
+/* font spacing is rendered differently across browsers... */
+/* chrome-specific rule */
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  h1{
+        font-size: 20px;
+        margin: 0px 0px 30px -2.5em;
+}
+}
+/* firefox-specific rule */
+@supports (-moz-appearance:none) {
+    h1{
+        font-size: 20px;
+        margin: 0px 0px 30px -2.8em;
+}
 }
 
 h2 {
 	font-size: 16px;
+        margin-left: -2.7em;
+}
+/* font spacing is rendered differently across browsers... */
+/* chrome-specific rule */
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  h2 {
+        font-size: 16px;
+        margin-left: -2.5em;
+  }
+}
+/* firefox-specific rule */
+@supports (-moz-appearance:none) {
+    h2 {
+        font-size: 16px;
+        margin-left: -2.7em;
+}
 }
 
 a:link,
@@ -26,6 +71,23 @@ a:active,
 a:hover {
 	text-decoration: none;
 	color: #800;
+}
+
+h1 .hiddenname,
+h2 .hiddencontacts,
+h2 .hiddenpubs,
+h2 .hiddenteaching,
+h2 .hiddenservice {
+        visibility: hidden;
+}
+
+h1:hover .hiddenname,
+h2:hover .hiddencontacts,
+h2:hover .hiddenpubs,
+h2:hover .hiddenteaching,
+h2:hover .hiddenservice {
+       visibility: visible;
+       color: #ddd;
 }
 
 h1:hover:after {
@@ -44,6 +106,10 @@ h2:hover:after {
 	content: '¶';
 }
 
+.mono {
+        font-family: UbuntuMono;
+}
+
 /***************************/
 
 div#upperempty {
@@ -59,18 +125,228 @@ div#centerdiv {
 	margin: auto;
 	border-left: dashed #ddd 1px;
 	padding-left: 2px;
+        position: relative;
+}
+
+div#leftsidephoto {
+        /*position: absolute;
+        right: -210px;
+        top: -30px;
+        clear: both;
+        float: none;
+        display: inline-block;*/
+        position: relative;
+        top: 0px;
+        float: right;
+        margin: 0px;
+        padding: 0 10px;
+}
+
+div#rightsidephoto {
+        /*position: absolute;
+        right: -210px;
+        top: -30px;
+        clear: both;
+        float: none;
+        display: inline-block;*/
+        position: relative;
+        top: 0px;
+        float: left;
+        margin: 0px;
+        padding: 0 10px;
+}
+
+div#titlename {
+        margin: 0;
+        padding: 0;
 }
 
 div#lastupdate {
-	position: fixed;
-	bottom: 0;
+	/*position: fixed;*/
+	/*bottom: 0;*/
 	color: #888;
 	font-size: 10px;
 	margin: 10px 0px;
 	padding: 0px;
+        float: none;
+        clear: both;
+}
+
+div#lastupdate:after {
+        content: "■";
+        float: right;
+        color: #ddd;
 }
 
 a h1,
 a h2 {
 	color: #222;
+}
+
+table.adjacencymatrix {
+}
+
+table.adjacencymatrix tr {
+	line-height: 1.1em;
+}
+
+table.adjacencymatrix td {
+	padding: 0 5px;
+}
+
+table.adjacencymatrix td.border {
+	font-size: 1.1em;
+	font-weight: bold;
+}
+
+ol.pubs {
+	display: table;
+	padding-inline-start: 2em;
+	list-style-type: none;
+}
+
+ol.pubs > li {
+	text-indent: -2em;
+	list-style: none;
+	position: relative;
+	/*display: table-row;*/
+        margin-bottom: 0.6em;
+}
+
+
+/**************************************************/
+/*                                                */
+/* Instructions: when a new publication is added, */
+/* raise the counter of the relative section so   */
+/* that it is 1 + (# of pubs)                     */
+/*                                                */
+/**************************************************/
+ol.journals {
+	counter-reset: journals-counter 7;
+}
+
+ol.confpubs {
+	counter-reset: confpubs-counter 8;
+}
+
+ol.techreps {
+	counter-reset: techreps-counter 2;
+}
+
+ol.thesespubs {
+	counter-reset: theses-counter 3;
+}
+
+ol.shortabspubs {
+	counter-reset: shortabs-counter 10;
+}
+
+ol.bookchapters {
+	counter-reset: bookchapters-counter 2;
+}
+
+ol.journals li:before {
+	content: '[j' counter(journals-counter) '] ';
+	counter-increment: journals-counter -1;
+}
+
+ol.confpubs li:before {
+	content: '[c' counter(confpubs-counter) '] ';
+	counter-increment: confpubs-counter -1;
+}
+
+ol.techreps li:before {
+        content: '[r' counter(techreps-counter) '] ';
+        counter-increment: techreps-counter -1;
+}
+
+ol.thesespubs li:before {
+	content: '[t' counter(theses-counter) '] ';
+	counter-increment: theses-counter -1;
+}
+
+ol.shortabspubs li:before {
+	content: '[a' counter(shortabs-counter) '] ';
+        counter-increment: shortabs-counter -1;
+}
+
+ol.bookchapters li:before {
+	content: '[ch' counter(bookchapters-counter) '] ';
+	counter-increment: bookchapters-counter -1;
+}
+
+/*ol li p.paperabstract {
+        display: none;
+}
+
+@media only screen and (min-device-width: 900px) {
+ol li:hover p.paperabstract {
+        display: inline-block;
+        / *position: absolute;
+        width: 300px;
+        left: 500px;
+        top: 0px;* /
+        text-indent: 0px;
+        margin: 0px;
+        padding: 0px;
+}
+}*/
+
+/****************************************************************************************/
+
+
+@media only screen and (max-device-width: 510px) {
+
+div#centerdiv {
+        width: 90%;
+        border: none;
+        padding: 0px;
+}
+
+div#upperempty {
+        height: 30px;
+}
+
+div#leftsidephoto {
+        position: relative;
+        /*right: 0px;
+        top: 0px;*/
+        clear: both;
+        float: none;
+}
+div#leftsidephoto img {
+        display: block;
+        margin: auto;
+}
+
+h1 .hiddenname,
+h2 .hiddencontacts,
+h2 .hiddenpubs,
+h2 .hiddenteaching,
+h2 .hiddenservice {
+        display: none;
+}
+
+h1,
+h2 {
+         margin-left: 0px;
+}
+
+h1 {
+         margin: 10px auto;
+         text-align: center;
+}
+
+h1:hover:after {
+         content: "";
+}
+
+h1:hover .hiddenname,
+h2:hover .hiddencontacts,
+h2:hover .hiddenpubs,
+h2:hover .hiddenteaching,
+h2:hover .hiddenservice {
+        display: none;
+}
+
 }
