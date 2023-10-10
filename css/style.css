@@ -226,7 +226,7 @@ ol.journals {
 }
 
 ol.confpubs {
-	counter-reset: confpubs-counter 8;
+	counter-reset: confpubs-counter 10;
 }
 
 ol.techreps {
