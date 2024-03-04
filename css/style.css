@@ -238,7 +238,7 @@ ol.thesespubs {
 }
 
 ol.shortabspubs {
-	counter-reset: shortabs-counter 10;
+	counter-reset: shortabs-counter 11;
 }
 
 ol.bookchapters {
