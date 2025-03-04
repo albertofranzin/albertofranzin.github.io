@@ -222,7 +222,7 @@ ol.pubs > li {
 /*                                                */
 /**************************************************/
 ol.journals {
-	counter-reset: journals-counter 7;
+	counter-reset: journals-counter 8;
 }
 
 ol.confpubs {
